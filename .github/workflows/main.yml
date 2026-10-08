@@ -9,18 +9,20 @@ jobs:
     runs-on: windows-latest
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Downloading & installing Essentials
-        shell: powershell
+        shell: cmd
         run: |
-          Invoke-WebRequest -Uri "https://gitlab.com/chamod12/1m_win-10_github_rdp/-/raw/main/Downloads.bat" -OutFile "Downloads.bat"
-          cmd /c Downloads.bat
+          call Downloads.bat
 
       - name: Connect to LiteManager
         shell: cmd
         run: |
-          cmd /c show.bat
+          call show.bat
 
       - name: Time Counter
         shell: cmd
         run: |
-          cmd /c loop.bat
+          call loop.bat
